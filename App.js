@@ -1,20 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
 import styled from 'styled-components/native';
 import ProductOverViewScreen from './screens/shop/ProductOverViewScreen';
-// import { Provider } from 'react-redux';
-// import { createStore, combineReducers } from 'redux';
-
-// import productReducer from './store/reducers/products'
-
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-
 import productsReducer from './store/reducers/products';
-// const rootReducer = combineReducers({
-//   products: productsReducer
-// });
 
-// const store = createStore(rootReducer);
+const rootReducer = combineReducers({
+  products: productsReducer
+});
+
+const store = createStore(rootReducer);
 
 
 const App = () => {
@@ -35,10 +30,12 @@ const App = () => {
   return (
 
 
-        <Wrapper>
+        <Provider store={store}>
+          <Wrapper>
         <Title>Hey Man..........</Title>
         <ProductOverViewScreen />
       </Wrapper>
+        </Provider>
 
 
   );
