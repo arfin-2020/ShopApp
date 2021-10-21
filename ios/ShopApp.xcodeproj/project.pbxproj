@@ -12,6 +12,13 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		ADCF331AE6B84A3E95DBEE3B /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D244FEF45F1B48BE8FDF9663 /* DancingScript-Bold.ttf */; };
+		72D8DCA81A874BA7A87B7D55 /* DancingScript-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C758B9A36BBC4D96808CB0ED /* DancingScript-Medium.ttf */; };
+		FA5798E32CF343B599335C06 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BC0F00A587C460A94E1B6F6 /* DancingScript-Regular.ttf */; };
+		F96F55F424F444FA810783C1 /* DancingScript-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752DD55F581D4C84AA6AEC7B /* DancingScript-SemiBold.ttf */; };
+		90719F1C64A94C1FB68D696C /* Ephesis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26A579EE67924DB3B089A71C /* Ephesis-Regular.ttf */; };
+		6C479C5E77624E0896428B3F /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1519E75F76664E9EA457C736 /* OpenSans-Bold.ttf */; };
+		6359E0765D084424B3FB5A7B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83816597C8684505A0E92CFD /* OpenSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ShopApp/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ShopApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		D244FEF45F1B48BE8FDF9663 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; name = "DancingScript-Bold.ttf"; path = "../assets/fonts/DancingScript-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C758B9A36BBC4D96808CB0ED /* DancingScript-Medium.ttf */ = {isa = PBXFileReference; name = "DancingScript-Medium.ttf"; path = "../assets/fonts/DancingScript-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5BC0F00A587C460A94E1B6F6 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; name = "DancingScript-Regular.ttf"; path = "../assets/fonts/DancingScript-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		752DD55F581D4C84AA6AEC7B /* DancingScript-SemiBold.ttf */ = {isa = PBXFileReference; name = "DancingScript-SemiBold.ttf"; path = "../assets/fonts/DancingScript-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		26A579EE67924DB3B089A71C /* Ephesis-Regular.ttf */ = {isa = PBXFileReference; name = "Ephesis-Regular.ttf"; path = "../assets/fonts/Ephesis-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1519E75F76664E9EA457C736 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		83816597C8684505A0E92CFD /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +123,7 @@
 				00E356EF1AD99517003FC87E /* ShopAppTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				E98E755D652C460097985799 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,6 +138,21 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		E98E755D652C460097985799 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				D244FEF45F1B48BE8FDF9663 /* DancingScript-Bold.ttf */,
+				C758B9A36BBC4D96808CB0ED /* DancingScript-Medium.ttf */,
+				5BC0F00A587C460A94E1B6F6 /* DancingScript-Regular.ttf */,
+				752DD55F581D4C84AA6AEC7B /* DancingScript-SemiBold.ttf */,
+				26A579EE67924DB3B089A71C /* Ephesis-Regular.ttf */,
+				1519E75F76664E9EA457C736 /* OpenSans-Bold.ttf */,
+				83816597C8684505A0E92CFD /* OpenSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -214,6 +244,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				ADCF331AE6B84A3E95DBEE3B /* DancingScript-Bold.ttf in Resources */,
+				72D8DCA81A874BA7A87B7D55 /* DancingScript-Medium.ttf in Resources */,
+				FA5798E32CF343B599335C06 /* DancingScript-Regular.ttf in Resources */,
+				F96F55F424F444FA810783C1 /* DancingScript-SemiBold.ttf in Resources */,
+				90719F1C64A94C1FB68D696C /* Ephesis-Regular.ttf in Resources */,
+				6C479C5E77624E0896428B3F /* OpenSans-Bold.ttf in Resources */,
+				6359E0765D084424B3FB5A7B /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

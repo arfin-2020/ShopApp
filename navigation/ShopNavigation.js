@@ -1,12 +1,24 @@
-import { createStackNavigator } from 'react-navigation';
-import Color from '../constant/Color';
-import ProductOverViewScreen from '../screens/shop/ProductOverViewScreen';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from "react-navigation";
 
-const productsNavigator = createStackNavigator({
-    ProductOverView: ProductOverViewScreen
-},{
+import ProductOverViewScreen from '../screens/shop/ProductOverViewScreen';
+import {Platform} from 'react-native';
+import Color from '../constant/Color';
+
+
+const ProductsNavigator = createStackNavigator(
+{
+    ProductsOverView: ProductOverViewScreen
+},
+{
     defaultNavigationOptions : {
-        headerStyle: Color.primaryColor,
+        headerStyle: {
+          backgroundColor: Platform.OS === 'android' ? Color.primaryColor : '',
+        },
+        headerTintColor: Platform.OS === 'android' ? Color.whiteColor: Color.primaryColor
     },
-    headerTintColor: Color.whiteColor,
-})
+    
+});
+
+
+export default  createAppContainer(ProductsNavigator);
