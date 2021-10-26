@@ -1,9 +1,15 @@
 import React from 'react';
 // import styled from 'styled-components/native';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Platform } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import ProductItem from '../../components/shop/ProductItem';
 import * as cartActions from '../../store/action/cart';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton, { CartIcon } from '../../components/UI/HeaderButton';
+import { TouchableOpacity } from 'react-native';
+// import {CartIcon} from '../../components/UI/HeaderButton';
+
+
 const ProductOverViewScreen = (props) => {
 
     const products = useSelector(state => state.products.availableProducts);
@@ -36,7 +42,16 @@ const ProductOverViewScreen = (props) => {
 }
 
 ProductOverViewScreen.navigationOptions = {
-    headerTitle: 'All Products'
+    headerTitle: 'All Products',
+    headerRight: ()=>(
+        <TouchableOpacity onPress={()=>{console.log('he click me')}}>
+            <CartIcon/>
+        </TouchableOpacity>
+    )
+    // headerRight: ()=> <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item title="Cart" 
+    //     iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}/>
+    // </HeaderButtons>
 };
 const styles = StyleSheet.create({
 
