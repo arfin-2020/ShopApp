@@ -1,12 +1,10 @@
 import React from 'react';
 // import styled from 'styled-components/native';
-import { FlatList, StyleSheet, Platform } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import ProductItem from '../../components/shop/ProductItem';
+import { CartIcon } from '../../components/UI/HeaderButton';
 import * as cartActions from '../../store/action/cart';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import HeaderButton, { CartIcon } from '../../components/UI/HeaderButton';
-import { TouchableOpacity } from 'react-native';
 // import {CartIcon} from '../../components/UI/HeaderButton';
 
 
@@ -41,17 +39,20 @@ const ProductOverViewScreen = (props) => {
     )
 }
 
-ProductOverViewScreen.navigationOptions = {
-    headerTitle: 'All Products',
-    headerRight: ()=>(
-        <TouchableOpacity onPress={()=>{console.log('he click me')}}>
-            <CartIcon/>
-        </TouchableOpacity>
-    )
-    // headerRight: ()=> <HeaderButtons HeaderButtonComponent={HeaderButton}>
-    //     <Item title="Cart" 
-    //     iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}/>
-    // </HeaderButtons>
+ProductOverViewScreen.navigationOptions = (navData) => {
+    return{
+        headerTitle: 'All Products',
+        headerRight: ()=>(
+            <TouchableOpacity onPress={()=>{navData.navigation.navigate('Cart')}}>
+                <CartIcon/>
+            </TouchableOpacity>
+        )
+        // headerRight: ()=> <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        //     <Item title="Cart" 
+        //     iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}/>
+        // </HeaderButtons>
+    }
+   
 };
 const styles = StyleSheet.create({
 

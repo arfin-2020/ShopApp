@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     priceStyle: {
         fontFamily: 'OpenSans-Regular',
         fontSize: 14,
-        color: Color.primaryColor,
+        color: Color.secondaryColor,
     },
     buttonContainer: {
         flexDirection: 'row',

@@ -3,5 +3,6 @@ export default {
     whiteColor: '#ffffff',
     secondaryColor: '#DA0037',
     accentColor: '#ff6f00',
-    priceColor: '#888',
+    priceColor: '#09009B',
+    buttonColor: '#091353'
 };
