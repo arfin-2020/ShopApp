@@ -12,23 +12,26 @@ export default (state = initialState, action) =>{
             const productPrice = addedProduct.price;
             const productTitle = addedProduct.title;
 
+            let updatedorNewCartItem;
             if(state.items[addedProduct.id]){
-                const updatedCartItem =  new CartItem(
+                 updatedorNewCartItem =  new CartItem(
                     state.items[addedProduct.id] + 1,
                     productPrice,
                     productTitle,
                     state.items[addedProduct.id].sum + productPrice
                 );
-                return{
-                    ...state,
-                    items:{...state.items, }
-                }
+                // return{
+                //     ...state,
+                //     items:{...state.items,  [addedProduct.id]: updatedCartItem },
+                //     totalAmmount: state.totalAmmount + productPrice
+                // }
             } else{
-                const newCartItem = new CartItem(1, productPrice, productTitle, productPrice);
-                return {
-                    ...state,
-                    items : {...state.items, [addedProduct.id]: newCartItem }
-                }
+                 updatedorNewCartItem = new CartItem(1, productPrice, productTitle, productPrice);
+            }
+            return {
+                ...state,
+                items : {...state.items, [addedProduct.id]: updatedorNewCartItem },
+                totalAmmount: state.totalAmmount + productPrice
             }
     }
     return state;

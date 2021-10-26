@@ -6,11 +6,16 @@ import { combineReducers, createStore } from 'redux';
 import productsReducer from './store/reducers/products';
 import ShopNavigation from './navigation/ShopNavigation';
 import { View } from 'react-native';
+// import {composeWithDevTools} from 'redux-devtools-extension';
+import cartReducer from './store/reducers/cart';
+
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  cart: cartReducer 
 });
 
 const store = createStore(rootReducer);
+// const store = createStore(rootReducer,composeWithDevTools());
 
 const App = () => {
   // const Title = styled.Text`

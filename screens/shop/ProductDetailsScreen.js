@@ -7,9 +7,9 @@ import {
     Text,
     View
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Color from '../../constant/Color';
-
+import * as CartActions from '../../store/action/cart'
 
 const ProductDetailsScreen = (props) => {
     const productId = props.navigation.getParam('productId');
@@ -17,10 +17,11 @@ const ProductDetailsScreen = (props) => {
     const selectedProduct = useSelector(state =>
         state.products.availableProducts.find(product => product.id === productId));
     // console.log('selected product--------', selectedProduct);
+    const dispatch = useDispatch();
     return (
         <ScrollView>
-            <View>
-                <View style={style.imageContainer}>
+            <View style={styles.mainContainer}>
+                <View style={styles.imageContainer}>
                     <Image style={styles.imageStyle} 
                     source={{ uri: selectedProduct.imageUrl }} 
                     />
@@ -28,7 +29,9 @@ const ProductDetailsScreen = (props) => {
                 <View style={styles.action}>
                     <Button color={Color.primaryColor} 
                     title='Add to cart' 
-                    onPress={() => { }} 
+                    onPress={() => {
+                        dispatch(CartActions.addToCart(selectedProduct));
+                     }} 
                     />
                 </View>
                 <Text style={styles.priceStyle}>${selectedProduct.price.toFixed(2)}</Text>
@@ -47,32 +50,33 @@ ProductDetailsScreen.navigationOptions = (navData) => {
 }
 
 const styles = StyleSheet.create({
-    imageContainer: {
-        width: '100%',
-        height: '60%',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        overflow: 'hidden',
-    },
+    // mainContainer:{
+    //     flex:1,
+    // },
+    // imageContainer: {
+    //     width: '100%',
+    //     height: '60%',
+    // },
     imageStyle: {
         width: '100%',
-        height: '100%',
+        height: 300,
     },
     action: {
-        marginVertical: 10,
+        marginVertical: 20,
         alignItems: 'center',
     },
     priceStyle: {
         fontFamily: 'OpenSans-Bold',
         fontSize: 20,
         color: Color.primaryColor,
-        marginVertical: 20,
+        marginVertical: 10,
+        textAlign:'center'
     },
     descriptionStyle: {
         fontFamily: 'OpenSans-Regular',
         fontSize: 14,
         color: Color.primaryColor,
-        alignItems: 'center',
+        // alignItems: 'center',
         marginHorizontal:20,
         borderColor: Color.primaryColor,
         borderWidth:2,
