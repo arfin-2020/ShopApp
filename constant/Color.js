@@ -4,5 +4,6 @@ export default {
     secondaryColor: '#DA0037',
     accentColor: '#ff6f00',
     priceColor: '#09009B',
-    buttonColor: '#091353'
+    buttonColor: '#091353',
+    tashbinIconColor: 'red',
 };

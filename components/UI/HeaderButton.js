@@ -24,3 +24,19 @@ export const CartIcon = () =>{
         color={Platform.OS === 'android' ? 'white' : Color.primaryColor} />
     )
 }
+export const TrashBin = () =>{
+    return (
+        <Icon style={{marginRight:15}} 
+        name="trash-bin" 
+        size={23}  
+        color={Platform.OS === 'android' ? Color.tashbinIconColor : Color.primaryColor} />
+    )
+}
+export const TrashBinIos = () =>{
+    return (
+        <Icon style={{marginRight:15}} 
+        name="ios-trash" 
+        size={23}  
+        color={Platform.OS === 'android' ?  Color.tashbinIconColor : Color.primaryColor} />
+    )
+}

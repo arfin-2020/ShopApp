@@ -8,8 +8,8 @@ import {
     View
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import Color from '../../constant/Color';
-import * as CartActions from '../../store/action/cart'
+import Color from '../constant/Color';
+import * as CartActions from '../store/action/cart'
 
 const ProductDetailsScreen = (props) => {
     const productId = props.navigation.getParam('productId');
@@ -28,7 +28,7 @@ const ProductDetailsScreen = (props) => {
                 </View>
                 <View style={styles.action}>
                     <Button color={Color.primaryColor} 
-                    title='Add to cart' 
+                    title='Add to cartss' 
                     onPress={() => {
                         dispatch(CartActions.addToCart(selectedProduct));
                      }} 

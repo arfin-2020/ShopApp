@@ -4,14 +4,17 @@ import { combineReducers, createStore } from 'redux';
 // import styled from 'styled-components/native';
 // import ProductOverViewScreen from './screens/shop/ProductOverViewScreen';
 import productsReducer from './store/reducers/products';
+import cartReducer from './store/reducers/cart';
+import OrderReducer from './store/reducers/order'
 import ShopNavigation from './navigation/ShopNavigation';
 import { View } from 'react-native';
 // import {composeWithDevTools} from 'redux-devtools-extension';
-import cartReducer from './store/reducers/cart';
+
 
 const rootReducer = combineReducers({
   products: productsReducer,
-  cart: cartReducer 
+  cart: cartReducer,
+  orders: OrderReducer 
 });
 
 const store = createStore(rootReducer);

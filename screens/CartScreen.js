@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import Color from '../../constant/Color';
+import { FlatList } from 'react-native-gesture-handler';
+import { useSelector, useDispatch } from 'react-redux';
+import Color from '../constant/Color';
+import CartItem from '../components/shop/CartItem';
+import * as cartActions  from '../store/action/cart';
+import * as ordersActions from '../store/action/order'
 
 const CartScreen = (props) =>{
     const cartTotalAmount = useSelector(state => state.cart.totalAmmount);
@@ -14,11 +18,12 @@ const CartScreen = (props) =>{
                 productPrice: state.cart.items[key].productPrice,
                 quantity: state.cart.items[key].quantity,
                 sum: state.cart.items[key].sum,
-
             });
         }
-        return transformedCartItems;
+        return transformedCartItems.sort((a,b)=>
+        a.productId > b.productId ? 1: -1);
     });
+    const dispatch = useDispatch();
     return(
         <View style={styles.screen}>
             <View style={styles.summary}>
@@ -28,10 +33,25 @@ const CartScreen = (props) =>{
                 <Button color={Color.buttonColor} 
                 title="Order Now"
                 disabled={cartItem.length === 0}    
+                onPress={
+                    dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
+                }
                 />
             </View>
             <View>
-                <Text>Cart Item</Text>
+                <FlatList 
+                data={cartItem}
+                keyExtractor={item => item.productId}
+                renderItem={itemData =>
+                <CartItem
+                quantity={itemData.item.quantity}
+                title={itemData.item.productTitle}
+                amount={itemData.item.sum}
+                onRemove={()=>{
+                    dispatch(cartActions.removeFromCart(itemData.item.productId));
+                }}
+                /> }
+                />
             </View>
         </View>
     )
@@ -47,7 +67,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         marginBottom: 20,
-
         shadowColor: 'black',
         shadowOffset: 0.26,
         shadowRadius: 8,
