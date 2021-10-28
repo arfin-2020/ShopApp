@@ -33,8 +33,8 @@ const CartScreen = (props) =>{
                 <Button color={Color.buttonColor} 
                 title="Order Now"
                 disabled={cartItem.length === 0}    
-                onPress={
-                    dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
+                onPress={ () =>
+                    dispatch(ordersActions.addOrder(cartItem, cartTotalAmount))
                 }
                 />
             </View>
