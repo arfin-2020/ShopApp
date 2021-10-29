@@ -40,3 +40,11 @@ export const TrashBinIos = () =>{
         color={Platform.OS === 'android' ?  Color.tashbinIconColor : Color.primaryColor} />
     )
 }
+export const Menu = () =>{
+    return (
+        <Icon style={{marginRight:15}} 
+        name="md-menu" 
+        size={23}  
+        color={Platform.OS === 'android' ?  Color.tashbinIconColor : Color.primaryColor} />
+    )
+}

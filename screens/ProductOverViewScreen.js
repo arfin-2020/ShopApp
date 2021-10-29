@@ -3,7 +3,7 @@ import React from 'react';
 import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductItem from '../components/shop/ProductItem';
-import { CartIcon } from '../components/UI/HeaderButton';
+import { CartIcon, Menu } from '../components/UI/HeaderButton';
 import * as cartActions from '../store/action/cart';
 // import {CartIcon} from '../../components/UI/HeaderButton';
 
@@ -42,6 +42,11 @@ const ProductOverViewScreen = (props) => {
 ProductOverViewScreen.navigationOptions = (navData) => {
     return{
         headerTitle: 'All Products',
+        headerLeft: (
+            <TouchableOpacity onPress={()=>{navData.navigation.toggleDrawer()}}>
+                <Menu/>
+            </TouchableOpacity>
+        ),
         headerRight: ()=>(
             <TouchableOpacity onPress={()=>{navData.navigation.navigate('Cart')}}>
                 <CartIcon/>
