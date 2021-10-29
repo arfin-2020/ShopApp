@@ -1,6 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components/native';
-import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductItem from '../components/shop/ProductItem';
 import { CartIcon, Menu } from '../components/UI/HeaderButton';
@@ -12,8 +12,14 @@ const ProductOverViewScreen = (props) => {
 
     const products = useSelector(state => state.products.availableProducts);
     const dispatch = useDispatch();
-    return (
 
+    const selectHandler = (id, title) =>{
+        props.navigation.navigate('ProductDetail', { 
+            productId: id, 
+            productTitle: title 
+        });
+    }
+    return (
         <FlatList
             data={products}
             keyExtractor={item => item.id}
@@ -22,16 +28,26 @@ const ProductOverViewScreen = (props) => {
                     image={itemData.item.imageUrl}
                     title={itemData.item.title}
                     price={itemData.item.price}
-                    onViewDetails={() => {
-                        props.navigation.navigate('ProductDetail', { 
-                            productId: itemData.item.id, 
-                            productTitle: itemData.item.title 
-                        });
-                    }}
-                    onAddToCart={() => {
-                        dispatch(cartActions.addToCart(itemData.item));
-                     }}
-                />
+                    onSelect={() => {
+                        selectHandler(itemData.item.id, itemData.item.title);
+                    }}>
+
+                    <Button
+                        color={Color.primaryColor}
+                        title="View Details"
+                        onPress={() => {
+                            selectHandler(itemData.item.id, itemData.item.title);
+                        }}
+                    />
+                    <Button
+                        color={Color.primaryColor}
+                        title="Add to Cart"
+                        onPress={()=>{
+                            dispatch(cartActions.addToCart(itemData.item));
+                        }}
+                    />
+
+                </ProductItem>
             )}
 
         />
