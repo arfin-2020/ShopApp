@@ -10,7 +10,7 @@ import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import ProductOverViewScreen from '../screens/ProductOverViewScreen';
 import OrderScreen from '../screens/OrderScreen';
 import UserProductScreen from '../screens/user/UserProductScreen';
-
+import EditProductSccreen from '../screens/user/EditProductScreen';
 const defaultNavOptions = {
     headerStyle: {
       backgroundColor: Platform.OS === 'android' ? Color.primaryColor : '',
@@ -45,7 +45,8 @@ const ProductsNavigator = createStackNavigator(
 });
 
 const AdminNavigator = createStackNavigator({
-    UserProducts: UserProductScreen
+    UserProducts: UserProductScreen,
+    EditProduct: EditProductSccreen
 },{
     navigationOptions:{
         drawerIcon: drawerConfig =>(

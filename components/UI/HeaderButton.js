@@ -2,7 +2,7 @@ import React from 'react';
 import {Platform} from 'react-native';
 import { HeaderButton } from 'react-navigation-header-buttons';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Color from '../../constant/Color'
+import Color from '../../constant/Color';
 // const customButton = (props) =>{
 //     return (
 //         <HeaderButton 
@@ -44,6 +44,22 @@ export const Menu = () =>{
     return (
         <Icon style={{marginRight:15}} 
         name="md-menu" 
+        size={23}  
+        color={Platform.OS === 'android' ?  Color.tashbinIconColor : Color.primaryColor} />
+    )
+}
+export const Add = () =>{
+    return (
+        <Icon style={{marginRight:15}} 
+        name="md-create" 
+        size={23}  
+        color={Platform.OS === 'android' ?  Color.tashbinIconColor : Color.primaryColor} />
+    )
+}
+export const SaveIcon = () =>{
+    return (
+        <Icon style={{marginRight:15}} 
+        name="md-checkmark" 
         size={23}  
         color={Platform.OS === 'android' ?  Color.tashbinIconColor : Color.primaryColor} />
     )

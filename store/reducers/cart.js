@@ -23,11 +23,6 @@ export default (state = initialState, action) =>{
                     productTitle,
                     state.items[addedProduct.id].sum + productPrice
                 );
-                // return{
-                //     ...state,
-                //     items:{...state.items,  [addedProduct.id]: updatedCartItem },
-                //     totalAmmount: state.totalAmmount + productPrice
-                // }
             } else{
                  updatedorNewCartItem = new CartItem(1, productPrice, productTitle, productPrice);
             }
