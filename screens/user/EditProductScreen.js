@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, ScrollView, Alert } from 'react-native';
 import { SaveIcon } from '../../components/UI/HeaderButton';
 import Color from '../../constant/Color';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,6 +19,8 @@ const EditProductSccreen = (props) => {
     const [description, setDescription] = useState(editedProduct ? editedProduct.description : '');
     const dispatch = useDispatch()
 
+ 
+
     const submitHandler =  useCallback(()=>{
         if(editedProduct){
             dispatch(
@@ -29,6 +31,7 @@ const EditProductSccreen = (props) => {
                 productsActions.createProduct(title, description, imageUrl, price)
             );
         }
+        props.navigation.goBack();
     },[dispatch, productId, title, description, imageUrl, price]);
 
     useEffect(()=>{
