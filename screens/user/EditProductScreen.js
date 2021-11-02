@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useReducer } from 'react';
-import { Alert, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { SaveIcon } from '../../components/UI/HeaderButton';
 import Input from '../../components/UI/input';
@@ -81,8 +81,7 @@ const EditProductSccreen = (props) => {
                     formState.inputValues.title,
                     formState.inputValues.description,
                     formState.inputValues.imageUrl,
-                    +formState.inputValues.price
-                )
+                    +formState.inputValues.price)
             );
         }
         props.navigation.goBack();
@@ -92,58 +91,81 @@ const EditProductSccreen = (props) => {
         props.navigation.setParams({ submit: submitHandler });
     }, [submitHandler])
 
-    const textChangeHandler = (inputIdentifier, text) => {
-        let isValid = false;
-        if (text.trim().legth > 0) {
-            isValid = true;
-        }
+    const inputChangeHandler = useCallback((inputIdentifier, inputValue, inputValidity) => {
         dispatchFormState({
             type: FORM_INPUT_UPDATE,
-            value: text,
-            isValid: isValid,
+            value: inputValue,
+            isValid: inputValidity,
             input: inputIdentifier
         });
-    }
+    },[dispatchFormState]);
 
     return (
+        <KeyboardAvoidingView 
+        style={{flex: 1}}
+        behavior='padding'
+        keyboardVerticalOffset={100}>
         <ScrollView>
             <View style={styles.form}>
                 <Input
-                    label='Image Url'
+                id='title'
+                    label='Title'
                     errorText='Please enter a valid title!'
                     returnKeyType='next'
                     keyboardType='default'
+                    autoCapitalize='sentence'
+                    autoCorrect
+                    onInputChange={inputChangeHandler}
+                    initialValue ={editedProduct ? editedProduct.title : ''}
+                    initiallyValid = {!!editedProduct} //true
+                    required
                 />
                 <Input
+                    id='imageUrl'
                     label='Image Url'
                     errorText='Please enter a valid image url!'
                     returnKeyType='next'
                     keyboardType='default'
+                    onInputChange={inputChangeHandler}
+                    initialValue ={editedProduct ? editedProduct.imageUrl : ''}
+                    initiallyValid = {!!editedProduct} //true
+                    required
                 />
 
         {
             editedProduct ? null : (
                 <Input
+                    id='price'
                     label='Price'
                     errorText='Please enter a valid price!'
+                    onInputChange={inputChangeHandler}
                     returnKeyType='next'
                     keyboardType='decimal-pad'
                     autoCapitalize='sentence'
-
+                    required
+                    min={0.1}
                 />
             )
         }
                 <Input
+                    id='description'
                     label='description'
                     errorText='Please enter a valid description!'
                     returnKeyType='next'
                     keyboardType='decimal-pad'
                     autoCapitalize='sentence'
+                    autoCorrect
                     multiline
                     numberOfLines={3}
+                    onInputChange={inputChangeHandler}
+                    initialValue ={editedProduct ? editedProduct.description : ''}
+                    initiallyValid = {!!editedProduct} //true
+                    required
+                    minLength={5}
                 />
             </View>
         </ScrollView>
+        </KeyboardAvoidingView>
     )
 }
 

@@ -29,6 +29,7 @@
     "react-navigation-tabs": "^2.11.1",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",
+    "redux-thunk": "^2.4.0",
     "regjsgen": "^0.6.0",
     "rnn": "^0.0.2",
     "start": "^5.1.0",

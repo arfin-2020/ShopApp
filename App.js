@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 // import styled from 'styled-components/native';
 // import ProductOverViewScreen from './screens/shop/ProductOverViewScreen';
 import productsReducer from './store/reducers/products';
 import cartReducer from './store/reducers/cart';
 import OrderReducer from './store/reducers/order'
 import ShopNavigation from './navigation/ShopNavigation';
-import { View } from 'react-native';
+import ReduxThunk from 'redux-thunk';
 // import {composeWithDevTools} from 'redux-devtools-extension';
 
 
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   orders: OrderReducer 
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 // const store = createStore(rootReducer,composeWithDevTools());
 
 const App = () => {
