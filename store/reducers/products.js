@@ -1,7 +1,6 @@
-import { yellow100, yellowA400 } from 'react-native-paper/lib/typescript/styles/colors';
 import PRODUCTS from '../../data/dammy-data';
 import Product from '../../model/product';
-import { CREATE_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } from '../action/products';
+import { CREATE_PRODUCT, DELETE_PRODUCT, SET_PRODUCTS, UPDATE_PRODUCT } from '../action/products';
 const initialState = {
     availableProducts: PRODUCTS,
     userProducts: PRODUCTS.filter(prod => prod.ownerId === 'u1')
@@ -9,8 +8,15 @@ const initialState = {
 
 export default (state = initialState, action) =>{
     switch(action.type){
+        case SET_PRODUCTS:
+            return{
+                availableProducts: action.products,
+                userProducts: action.products.filter(prod=>prod.ownerId === 'u1')
+            };
         case CREATE_PRODUCT:
-            const newProduct = new Product(new Date().toString(),'u1',
+            const newProduct = new Product(
+            action.proudctData.id,
+            'u1',
             action.productData.title,
             action.productData.imageUrl,
             action.productData.description,
